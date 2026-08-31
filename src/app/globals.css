@@ -355,3 +355,17 @@ th {
 .farol-vermelho {
   color: #dc2626;
 }
+
+.variacao-pos {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.variacao-neg {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.sem-dado {
+  color: var(--texto-suave);
+}

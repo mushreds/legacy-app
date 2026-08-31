@@ -47,6 +47,17 @@ Nenhum cálculo de meta usa número fixo no código — tudo é lido dessas tabe
 - Gráfico de linha (Recharts) com meta acumulada vs. realizado acumulado dia
   a dia, marcador de "hoje" e seletor de mês/cenário (piso, meta ou teto).
 
+**Visões diária, semanal e mensal** (`/visoes`):
+
+- Três abas com tabela e gráfico de barras agregando `vendas_diarias` por dia,
+  semana (segunda a domingo) ou mês.
+- Comparativo contra o mesmo período do ano anterior (mesmo dia, mesma semana
+  — 52 semanas atrás — ou mesmo mês do ano anterior), mostrado só quando há
+  lançamento naquele período; caso contrário aparece "—" em vez de um zero
+  enganoso.
+- Seletor de janela (ex.: últimos 30/60/90 dias, 12/26/52 semanas, 6/12/24
+  meses).
+
 ## Backup do banco
 
 Todo o dado vive em um único arquivo SQLite: `data/vendas.db`.
@@ -76,9 +87,9 @@ Para restaurar, pare o app e copie o backup de volta para `data/vendas.db`
 ## Fases
 
 - Fase 1: schema completo + lançamento manual + importação Upseller.
-- **Fase 2 (atual):** dashboard do mês (meta acumulada por fator de dia da
-  semana, projeção de fechamento, farol).
-- Fase 3: visões diária/semanal/mensal com comparativo ano anterior.
+- Fase 2: dashboard do mês (meta acumulada por fator de dia da semana,
+  projeção de fechamento, farol).
+- **Fase 3 (atual):** visões diária/semanal/mensal com comparativo ano anterior.
 - Fase 4: metas por categoria com realizado semanal.
 - Fase 5: promoções (CRUD + faixas no gráfico).
 - Fase 6: marcos de realinhamento + recalibragem de metas.

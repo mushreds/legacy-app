@@ -21,6 +21,7 @@ export default function RootLayout({
             <nav>
               <Link href="/lancamento">Lançamento diário</Link>
               <Link href="/dashboard">Dashboard</Link>
+              <Link href="/visoes">Visões</Link>
               <span className="nav-desativado" title="Fase 4">
                 Categorias
               </span>
