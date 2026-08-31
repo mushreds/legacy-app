@@ -35,6 +35,18 @@ Nenhum cálculo de meta usa número fixo no código — tudo é lido dessas tabe
   `DD/MM/AAAA` e valores `1.234,56`, ignora linhas de total e faz upsert por
   data — reimportar o mesmo arquivo apenas atualiza os dias existentes.
 
+**Dashboard do mês** (`/dashboard`):
+
+- Meta acumulada até hoje, calculada ponderando cada dia pelo fator de dia
+  da semana (tabela `parametros`) — não por divisão simples do total pelo
+  número de dias do mês.
+- Realizado acumulado (soma de `vendas_diarias.valor_validas`), % de
+  atingimento e projeção de fechamento pelo ritmo atual (extrapola a razão
+  realizado/meta acumulados sobre a meta do mês inteiro).
+- Farol: verde (≥100% da meta acumulada), amarelo (90–99%), vermelho (<90%).
+- Gráfico de linha (Recharts) com meta acumulada vs. realizado acumulado dia
+  a dia, marcador de "hoje" e seletor de mês/cenário (piso, meta ou teto).
+
 ## Backup do banco
 
 Todo o dado vive em um único arquivo SQLite: `data/vendas.db`.
@@ -63,9 +75,9 @@ Para restaurar, pare o app e copie o backup de volta para `data/vendas.db`
 
 ## Fases
 
-- **Fase 1 (atual):** schema completo + lançamento manual + importação Upseller.
-- Fase 2: dashboard do mês (meta acumulada por fator de dia da semana,
-  projeção de fechamento, farol).
+- Fase 1: schema completo + lançamento manual + importação Upseller.
+- **Fase 2 (atual):** dashboard do mês (meta acumulada por fator de dia da
+  semana, projeção de fechamento, farol).
 - Fase 3: visões diária/semanal/mensal com comparativo ano anterior.
 - Fase 4: metas por categoria com realizado semanal.
 - Fase 5: promoções (CRUD + faixas no gráfico).

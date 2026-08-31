@@ -20,10 +20,8 @@ export default function RootLayout({
             <span className="logo">📈 Vendas &amp; Metas</span>
             <nav>
               <Link href="/lancamento">Lançamento diário</Link>
-              <span className="nav-desativado" title="Fase 2">
-                Dashboard
-              </span>
-              <span className="nav-desativado" title="Fase 3">
+              <Link href="/dashboard">Dashboard</Link>
+              <span className="nav-desativado" title="Fase 4">
                 Categorias
               </span>
             </nav>
